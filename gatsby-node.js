@@ -22,12 +22,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
-    const slug = node.title.replace(" ", "-").toLowerCase()
+    const slug = node.title.replace(/ /g, "-").toLowerCase()
     createPage({
       path: "/blog/" + slug,
       component: blogPostTemplate,
       context: {
-        slug: slug,
+        title: node.title,
       },
     })
   })

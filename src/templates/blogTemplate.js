@@ -26,8 +26,8 @@ export default function Template({ data }) {
 }
 
 export const pageQuery = graphql`
-  query MyQuery {
-    contentfulBlogPost {
+  query MyQuery($title: String!) {
+    contentfulBlogPost(title: { eq: $title }) {
       blogBody {
         id
         childMarkdownRemark {
