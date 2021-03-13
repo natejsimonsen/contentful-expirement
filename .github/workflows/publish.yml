@@ -1,9 +1,8 @@
 name: Gatsby Publis
 
 on:
-  push:
-    branches:
-      - master
+  repository_dispatch:
+    types: [update_site]
 
 jobs:
   build:
